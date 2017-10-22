@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
             name='project',
         ),
         migrations.DeleteModel(
-            name='Project',
+            name='ProjectSolution',
         ),
         migrations.DeleteModel(
             name='Task',
