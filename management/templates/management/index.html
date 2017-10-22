@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <div class="columns">
+        <div class="column is-two-thirds">
+                <table class="table">
+        <thead>
+            <tr>
+                <th>Project number</th>
+                <th>Project name</th>
+                <th>Project due to</th>
+                <th>Calculated project end</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for project in project_list %}
+            <tr>
+                <td>{{ project.id }}</td>
+                <td>
+                    <a href="">{{ project.name }}</a>
+                </td>
+                <td>
+                    {{ project.due }}
+                </td>
+                <td>
+                    {{ project.calculated_due }}
+                </td>
+                <td>
+                            <a href="{% url 'management:delete' project.id %}" icon has-text-info>
+                                <i class="fa fa-trash"></i>
+                            </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+        </div>
+        <div class="column auto">
+            <section>
+                <h1>Project management</h1>
+                <h2>Create new project</h2>
+                <a href="{% url 'management:create_new' %}">New project</a>
+            </section>
+        </div>
+
+    </div>
+
+
+
+{% endblock %}

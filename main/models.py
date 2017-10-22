@@ -7,7 +7,7 @@ from django.utils import timezone
 class Project(models.Model):
     name = models.CharField(max_length=30)
     description = models.TextField()
-    due = models.DateTimeField()
+    due = models.DateTimeField(default=timezone.now)
     calculated_due = models.DateTimeField()
     created = models.DateTimeField(default=timezone.now)
 

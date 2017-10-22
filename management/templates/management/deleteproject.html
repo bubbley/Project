@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Delete project{% endblock %}
+
+
+
+{% block content %}
+    <h1 class="title">
+    Delete Project
+    </h1>
+    <div class="columns">
+        <div class="column is-half">
+                <form method="post" action="{% url 'management:delete'  project.id  %}">
+                    {% csrf_token %}
+                    <div class="field">
+                      <label class="label">Name</label>
+                      <div class="control">
+                        <input readonly name="name" class="input" type="text" placeholder="Text input" value="{{ project.name }}">
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <label class="label">Description</label>
+                      <div class="control">
+                        <textarea readonly name="description" class="textarea" placeholder="Textarea" >
+                            {{ project.description }}
+                        </textarea>
+                      </div>
+                    </div>
+
+                    <div class="field is-grouped">
+                      <div class="control">
+                        <button class="button is-link">Delete</button>
+                      </div>
+                      <div class="control">
+                        <button class="button is-text">Cancel</button>
+                      </div>
+                    </div>
+                </form>
+        </div>
+        <div class="column auto"></div>
+    </div>
+
+
+{% endblock %}
